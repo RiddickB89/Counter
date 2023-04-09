@@ -1,2 +1,3 @@
-# Counter
-Application to set counter
+# Countdown timer
+
+Application to set countdown timer
