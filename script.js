@@ -12,6 +12,7 @@ const resetBtnEl = document.querySelector("#resetBtn");
 const day = 24 * 60 * 60;
 const hour = 60 * 60;
 const minute = 60;
+let savedCountdown;
 let countdown;
 let eventDate = Date;
 let eventName = "";
@@ -26,9 +27,9 @@ let eventName = "";
 
 const showCountdownEvent = function () {
   formEl.style.cssText = `display:none`;
-  videoEl.hidden = false;
-  timerContainerEl.style.cssText = `display:flex`;
   timerEl.style.cssText = `display:flex`;
+  timerContainerEl.style.cssText = `display:flex`;
+  videoEl.hidden = false;
 };
 
 const showCountdownForm = function () {
@@ -55,15 +56,14 @@ const setCountdownTimer = function () {
   timerNumbersEl.forEach((timerEl, index) => {
     timerEl.textContent = `${timeLeftArr[index]}`;
   });
-
   if (timeLeft < 1) {
+    localStorage.removeItem("time");
     eventHasBegun();
   }
 };
 
 const showCountdownTimer = function () {
   countdown = setInterval(function () {
-    showCountdownEvent();
     setCountdownTimer();
   }, 1000);
 };
@@ -76,12 +76,28 @@ formEl.addEventListener("submit", function (e) {
   e.preventDefault();
   eventName = e.target[0].value;
   eventDate = new Date(e.target[1].value).getTime();
-
-  showCountdownTitle();
+  savedCountdown = {
+    savedEventName: eventName,
+    savedEventDate: eventDate,
+  };
+  localStorage.setItem("time", JSON.stringify(savedCountdown));
   showCountdownTimer();
+  showCountdownTitle();
+  showCountdownEvent();
 });
 
 resetBtnEl.addEventListener("click", function () {
   clearInterval(countdown);
+  localStorage.removeItem("time");
   showCountdownForm();
 });
+
+(function () {
+  if (!localStorage.getItem("time")) return;
+  showCountdownEvent();
+  savedCountdown = JSON.parse(localStorage.getItem("time"));
+  eventName = savedCountdown.savedEventName;
+  eventDate = new Date(savedCountdown.savedEventDate).getTime();
+  showCountdownTitle();
+  showCountdownTimer();
+})();
