@@ -2,6 +2,11 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
 }
+@media only screen and (max-width: 42em) {
+  html {
+    font-size: 50%;
+  }
+}
 
 *,
 *::after,
@@ -40,10 +45,19 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 1rem;
   padding: 3rem 5rem;
   box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+@media only screen and (max-width: 42em) {
+  .event {
+    padding: 2rem;
+    margin: 1rem;
+    line-height: 1.2;
+  }
 }
 .event__title {
   font-size: 4rem;
@@ -52,7 +66,7 @@ body {
 }
 .event__label {
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-weight: 400;
 }
 .event__input {
@@ -61,8 +75,8 @@ body {
   font-size: 2rem;
   text-align: center;
   width: 70%;
-  padding: 1.5rem 3rem;
-  margin-bottom: 3rem;
+  padding: 1.5rem 2.5rem;
+  margin-bottom: 2rem;
   cursor: pointer;
   border: none;
   border-radius: 1rem;
@@ -80,6 +94,7 @@ body {
   font-weight: 400;
   font-size: 2rem;
   padding: 1.5rem 3rem;
+  margin-top: 1rem;
   border-radius: 1rem;
   border: none;
   box-shadow: 0rem 1.5rem 3rem rgba(0, 0, 0, 0.25);
@@ -104,11 +119,19 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1rem 5rem 3rem 5rem;
+  text-align: center;
+  margin: 1rem;
+}
+@media only screen and (max-width: 42em) {
+  .timer-container {
+    padding: 2rem 1rem;
+  }
 }
 
 .timer-title {
   font-size: 5rem;
   font-weight: 500;
+  margin-bottom: 2rem;
 }
 
 .timer {
@@ -118,6 +141,11 @@ body {
   font-weight: 500;
   gap: 1rem 4rem;
   margin-bottom: 3rem;
+}
+@media only screen and (max-width: 42em) {
+  .timer {
+    gap: 1rem 3rem;
+  }
 }
 .timer__col {
   display: flex;
