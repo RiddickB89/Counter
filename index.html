@@ -27,9 +27,10 @@
       muted
       autoplay
       loop
+      hidden
     ></video>
     <form class="event">
-      <h1 class="event__title">Create a Custom Countdown Timer!</h1>
+      <h1 class="event__title">Create a Custom Countdown Timer !</h1>
       <label for="event-name" class="event__label">Set The Event Name</label>
       <input
         id="event-name"
@@ -39,20 +40,24 @@
         maxlength="20"
         required
       />
-      <label for="event-date" class="event-label">Choose The Event Date</label>
-      <input id="event-date" type="date" class="event-input" required />
-      <input type="submit" value="Set" class="btn" />
+      <label for="event-date" class="event__label">Choose The Event Date</label>
+      <input
+        id="event-date"
+        type="datetime-local"
+        class="event__input"
+        required
+      />
+      <input id="submitBtn" type="submit" value="Set" class="btn" />
     </form>
     <div class="timer-container">
-      <h1 class="timer-title">Holidays for</h1>
+      <h1 class="timer-title"></h1>
       <ul class="timer">
-        <li class="timer__col"><span class="timer__nb">14</span>Months</li>
-        <li class="timer__col"><span class="timer__nb">14</span>Days</li>
-        <li class="timer__col"><span class="timer__nb">14</span>Hours</li>
-        <li class="timer__col"><span class="timer__nb">14</span>Minutes</li>
-        <li class="timer__col"><span class="timer__nb">14</span>Seconds</li>
+        <li class="timer__col"><span class="timer__nb"></span>Days</li>
+        <li class="timer__col"><span class="timer__nb"></span>Hours</li>
+        <li class="timer__col"><span class="timer__nb"></span>Minutes</li>
+        <li class="timer__col"><span class="timer__nb"></span>Seconds</li>
       </ul>
-      <input type="submit" value="Reset" class="btn" />
+      <input id="resetBtn" type="submit" value="Reset" class="btn" />
     </div>
   </body>
 </html>
