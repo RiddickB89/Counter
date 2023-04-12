@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "Application that allows you to set a occasional countdown timer",
   "scripts": {
-    "watch-sass": "sass ./style.scss ./style.css -w",
+    "watch-sass": "sass ../scss/style.scss ../css/style.css -w",
     "live": "live-server",
     "start": "npm-run-all -p watch-sass live",
-    "compile-sass": "sass ./style.scss ./style.comp.css",
-    "prefix-css": "postcss --use autoprefixer browserslist 'last 10 versions' .style.comp.css -output ./style.prefix.css",
-    "compress-css": "sass ./style.prefix.css ./style.css --output-style compressed",
+    "compile-sass": "sass ./scss/style.scss ./css/style.comp.css",
+    "prefix-css": "postcss --use autoprefixer -b 'last 10 versions' ./css/style.comp.css -o ./css/style.prefix.css",
+    "compress-css": "sass ./css/style.prefix.css ./css/style.css --style compressed",
     "build-css": "npm-run-all compile-sass prefix-css compress-css",
-    "build-html": "parcel build ./index.html --dist-dir ./dist"
+    "build-html": "parcel build ./html/index.html --dist-dir ./dist"
   },
   "repository": {
     "type": "git",
